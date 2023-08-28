@@ -41,8 +41,26 @@ def handle_client(client_socket):
         try:
             message = client_socket.recv(1024).decode()
             if message:
-                print(f"{clear}{color}{nick}{clear} > {message}{clear}")
-                broadcast(f"{color}{nick}{clear} > {message}{clear}".encode(), client_socket)
+                if not message.startswith("/"):
+                    print(f"{clear}{color}{nick}{clear} > {message}{clear}")
+                    broadcast(f"{color}{nick}{clear} > {message}{clear}".encode(), client_socket)
+                else:
+                    parts = message.split(' ', 1)
+                    command = parts[0]
+                    if command == '/quit':
+                        clients.remove(client_socket)
+                        clients.close()
+                        print(f"{clear}{red}The user {nick} has left.{clear}")
+                        broadcast(f"{clear}{red}The user {nick} has left.{clear}".encode(), client_socket)
+                        break
+                    elif command == '/nick':
+                        if len(parts) > 1:
+                            new_nick = parts[1]
+                            print(f"Client {client_address[1]} ({nick}) has changed his username for {new_nick}")
+                            broadcast(f"{clear}{color}Server: {nick} is now {new_nick}{clear}", clients, client_socket)
+                            nick = new_nick
+                        else:
+                            client_socket.send(f"{clear}{red}Error: No username specified{clear}".encode())
             else:
                 print(f"{clear}{red}The user {nick} has left.{clear}")
                 clients.remove(client_socket)
