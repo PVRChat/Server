@@ -51,7 +51,7 @@ def handle_client(client_socket):
                         clients.remove(client_socket)
                         clients.close()
                         print(f"{clear}{red}The user {nick} has left.{clear}")
-                        broadcast(f"{clear}{red}The user {nick} has left.{clear}".encode(), client_socket)
+                        broadcast(f"\nThe user {nick} has left.\n".encode(), client_socket)
                         break
                     elif command == '/nick':
                         if len(parts) > 1:
@@ -64,7 +64,7 @@ def handle_client(client_socket):
             else:
                 print(f"{clear}{red}The user {nick} has left.{clear}")
                 clients.remove(client_socket)
-                broadcast(f"{clear}{red}The user {nick} has left.{clear}".encode(), client_socket)
+                broadcast(f"\nThe user {nick} has left.\n".encode(), client_socket)
                 break
         except:
             clients.remove(client_socket)
