@@ -43,7 +43,7 @@ def handle_client(client_socket):
             if message:
                 if not message.startswith("/"):
                     print(f"{clear}{color}{nick}{clear} > {message}{clear}")
-                    broadcast(f"{color}{nick}{clear} > {message}{clear}".encode(), client_socket)
+                    broadcast(f"{nick} > {message}".encode(), client_socket)
                 else:
                     parts = message.split(' ', 1)
                     command = parts[0]
