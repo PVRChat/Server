@@ -73,6 +73,6 @@ def handle_client(client_socket):
 while True:
     client_socket, client_address = server_socket.accept()
     clients.append(client_socket)
-    print("Connected from {}".format(client_socket))
+    print("A new connection as been etablished")
     client_thread = threading.Thread(target=handle_client, args=(client_socket,))
     client_thread.start()
