@@ -35,7 +35,7 @@ def handle_client(client_socket):
     red = f"\033[31m"
     clear = f"\033[0m"
     print(f"{clear}{green}The user {nick} has joined.{clear}")
-    broadcast(f"{clear}{green}The user {nick} has joined.{clear}".encode(), client_socket)
+    broadcast(f"\nThe user {nick} has joined.\n".encode(), client_socket)
 
     while True:
         try:
