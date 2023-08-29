@@ -18,7 +18,7 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((IP, PORT))
 server_socket.listen(5)
 
-print("\nListening on: {}:{}".format(IP, PORT))
+print(f"\nListening on: {IP}:{PORT}")
 
 def broadcast(message, client_socket):
     for client in clients:
