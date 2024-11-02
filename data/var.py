@@ -6,6 +6,8 @@ motd = """
  |_|     \_/  |_| \_\\\\____|_| |_|\__,_|\__| |____/ \___|_|    \_/ \___|_|
 """
 
+clients = []
+
 databaseFile = "data/database.db"
 
 dbInit = """
