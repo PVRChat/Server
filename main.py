@@ -1,14 +1,15 @@
 import socket
 import threading
+from data.var import motd
+import sqlite3
 
-print()
-print("  ______     ______   ____ _           _     ____                           ")
-print(" |  _ \ \   / /  _ \ / ___| |__   __ _| |_  / ___|  ___ _ ____   _____ _ __ ")
-print(" | |_) \ \ / /| |_) | |   | '_ \ / _` | __| \___ \ / _ \ '__\ \ / / _ \ '__|")
-print(" |  __/ \ V / |  _ <| |___| | | | (_| | |_   ___) |  __/ |   \ V /  __/ |   ")
-print(" |_|     \_/  |_| \_\\\\____|_| |_|\__,_|\__| |____/ \___|_|    \_/ \___|_|   ")
-print("                                                                            ")
-print()
+
+class main():
+    pass
+
+if __name__ == "__main__":
+    print(motd)
+    main()
 
 clients = []
 IP = "0.0.0.0"
