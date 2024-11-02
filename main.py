@@ -4,6 +4,12 @@ from data.var import *
 import sqlite3
 
 class main():
+    def __init__(self):
+        self.database = sqlite3.connect(databaseFile)
+        self.cursor = self.database.cursor()
+        self.cursor.executescript(dbInit)
+        self.database.commit()
+        self.database.close()
     IP = "0.0.0.0"
     PORT = 4007
 
